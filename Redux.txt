@@ -1,0 +1,17 @@
+Execute JS code without browser:
+type "node jsfilename" in command prompt
+
+- Any changes to the file will not be automatically watched by node.
+- To Monitor for any changes in your node.js application and automatically restart the server - perfect for development
+    -   Install "nodemon"
+        npm i -g nodemon
+
+*************************************************************
+REDUX
+-> State container for Javascript Apps.
+-> Redux gives certain flow for managing data
+    - Store
+    - Reducer
+    - Action
+    - Dispatch
+    - subscribe
