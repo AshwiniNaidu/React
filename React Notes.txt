@@ -1,0 +1,106 @@
+
+VIRTUAL DOM
+JSX
+******************************************************
+
+JS Frameworks/Libraries
+-> SPA
+-> Component based UI development
+*****************************************************
+
+NPM:
+-> To create package.json in a project => npm init /npm init -y
+-> Save runtime packages/dependencies (added in package.json dependencies section) - "-S" (Ex. npm install -S abc)
+-> Save development packages/dependencies (added in package.json devDependencies section) - "-D" (Ex. npm install -D abc)
+-> NPM as a task runner - Built In and Custom tasks
+    Custom tasks added in scripts section of package.json can be executed in the 
+command prompt using "run" - Ex. npm run lite
+
+*************************************************************
+Lite-Server:
+-> Development node server that serves a webapp. It is a wrapper for BrowserSync. 
+    Installation: npm install lite-server -D (added as devDependency in package.json)
+    Usage:
+    1. Type from project root in command prompt --> node_modules\.bin\lite-server 
+    2. Add "lite": "lite-server" to scripts section in package.json and run 
+        "npm run lite" from project root in command prompt
+
+
+*************************************************************
+
+CommonJS, AMD, UMD, RequireJS 
+-> Standards used to define dependencies and export values (Multiple JS files)
+-> CommonJS uses "require()" function to define dependencies in other js files (main file)
+
+
+**************************************************************
+Webpack
+-> Module bundler 
+->Installation - npm install -g Webpack
+-> Usage: from the js folder in cmd - run "webpack srcjs newbundledjs"
+    
+**************************************************************
+REACT JS
+-> API - React (Presentation/Process Logic)
+    - React-DOM (DOM Manipulation)
+-> REACT Setup
+     - Manual setup
+     - CLI Tool (create-react-app) (Uses babel and webpack internally)
+            1. Run the below command to setup react globally
+                "npm install -g create-react-app"
+            2. Check the setup
+                "create-react-app --version" (confirm Installation)
+            3. create new project
+                "create-react-app projname" (no Capital Letters allowed)
+    - New project has folder "public" - index.html, "src" - js/css files and node modules
+    - Startup JS file - src/index.js
+    - custom deveoper tool for debugging - extension "React" in Chrome/Firefox
+-> Virtual DOM
+-> JSX 
+    - Used to create DOM elements/ execute expressions. It's a syntax extension to JavaScript (HTML + XML).Template Language. Internally uses Babel to
+    compile the syntax down to "React.createElement" 
+     Ex. ReactDOM.render(<p>Hello!</p>, root); //Hello! 
+     Ex. ReactDOM.render(<p>Hello! { 10+ 5} </p>, root); // Hello! 15
+    - Multi-line html must be enclosed in parent element.
+    Ex. ReactDOM.render(
+    <div>
+        <h3>Welcome to React</h3>
+        <p>First React Example</p>
+    </div>, root);
+    - custom tags/component names should always start with Capital Letter/Pascal case
+    - class attribute in html is className
+ -> components 
+    - Functional based component 
+        Ex. let App = () => {};
+    - Class based Component 
+        Ex. class App extends React.Component {}
+        1.  Can be used in different modules using export/import
+        2. Export Types - Default and Named
+            a. Default : One per file
+                Ex. export default class A extends React.Component {}
+                i. While importing default, {} must not be used around the classname.
+                    Ex. import A from './test'
+                ii. Alias names can be used while importing default elements
+            b. Named: Multiple named per file
+                i. Same name must be used while importing
+                ii. While importing, {} must be used
+                    Ex. import {A} from './test'
+
+    - Components accept data through attributes called "props" or "properties"
+        - Helps pass data from Parent to Child component
+        Ex. In parent component - 
+            class SignIn extends Component {
+                render() {
+                    return (
+                      <div>
+                        <Sign heading="Sign In" />
+                      </div>
+                    )
+                }
+            }
+          In Child Component -
+            export default class Sign extends Component {
+                render() {
+                    return <h3>{this.props.heading}</h3>
+                }
+            }
