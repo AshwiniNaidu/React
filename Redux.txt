@@ -11,7 +11,18 @@ REDUX
 -> State container for Javascript Apps.
 -> Redux gives certain flow for managing data
     - Store
-    - Reducer
+    - Reducer - A method with two arguments (state and action)
     - Action
     - Dispatch
     - subscribe
+
+**************************************************************
+JSON-SERVER : 
+create rest based web services in front end
+- Installation 
+    npm i -S json-server
+- usage
+    - create a new json file in the project folder 
+    - in CMD, type json-server filenname
+    
+
