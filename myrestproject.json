@@ -1,0 +1,39 @@
+{
+  "wsproducts": [
+    {
+      "id": 1,
+      "name": "Nokia 5300",
+      "price": "5000"
+    },
+    {
+      "id": 2,
+      "name": "iPhone X",
+      "price": 85000
+    },
+    {
+      "id": 3,
+      "name": "RedMi Note2",
+      "price": "15000"
+    },
+    {
+      "id": 9,
+      "name": "Lava 7",
+      "price": "3500"
+    },
+    {
+      "id": 11,
+      "name": "Karbonn 4",
+      "price": "2000"
+    },
+    {
+      "id": 12,
+      "name": "OnePlus 3T",
+      "price": "30000"
+    },
+    {
+      "id": 13,
+      "name": "Samsung Galaxy2",
+      "price": "10000"
+    }
+  ]
+}
