@@ -68,6 +68,7 @@ REACT JS
         <p>First React Example</p>
     </div>, root);
     - custom tags/component names should always start with Capital Letter/Pascal case
+    - React Events must always be in CamelCase
     - class attribute in html is className
  -> components 
     - Functional based component 
@@ -104,3 +105,103 @@ REACT JS
                     return <h3>{this.props.heading}</h3>
                 }
             }
+
+***********************************************
+State in ReactJS
+-> State is a JavaScript object which allows to modify the mutable React component data.
+-> State is available only for class based component in React
+-> "ref" attribute is used to access DOM elements.It can be attached to any hTML element
+    to access its value
+    Ex. <input type="text" className="form-control" ref="userId" />
+->"refs" object can be used to retrieve the values accessed by "ref".
+Ex. console.log(this.refs.userId.value);
+-> "setState" is used to update the local state of the class.
+
+***************************************************
+Passing Data: (Communication)
+-> Parent to child is done through "props"
+-> Child to Parent is combination of "props" and "state"
+    - Send data "props" value from parent to child through function call
+    Ex. 
+        Parent : <Sign heading="Sign In" onSignInClick={this.handleSignIn} /> 
+        child:  console.log(this.props.onSignInClick(this.refs.userId.value));
+    - receive data in parent
+        Ex. Receive data in Parent:
+             handleSignIn = (uname) => {
+                console.log("handleSign In " + uname)
+             }
+    - Update state in Parent:
+        Ex:  handleSignIn = (uname) => {
+                console.log("handleSign In " + uname);
+                this.setState({loggedUserName: uname});
+             }
+
+************************************************************************
+Routing
+-> Manages view changes in react application
+-> React-router - base package. The below two packages uses this base
+    - react-router-dom -> package used for browser
+    - react-router native -> package used for mobile
+-> React Router renders components based on request URLs in web browsers
+-> Maintains browser history and updates the browser path
+-> React-Router-Dom
+   1. Installation: "npm i -S react-router-dom"
+
+   2. BrowserRouter: Router Component that uses HTML5 history API(pushstate, replaceState) to keep UI sync 
+        with URL.
+        Ex. ReactDOM.render(
+                <BrowserRouter>
+                <App />
+                </BrowserRouter>, document.getElementById("root"))
+
+   3. Route: Route component is used to define the route paths and components associated to the particular route 
+        Ex. <Route path="/signIn" component={SignIn} />
+        
+        If there is no component, render function can be used directly to add the content which needs to be
+        displayed when user navigates to that particular path
+        Ex: <Route exact path="/" render={() => <h2>Home</h2>} />
+
+   4. Link: Link component is used an alternative to anchor tag to map the urls for the links in navigation
+      Ex. <Link to="/signin" className="nav-link">Sign In</Link>
+
+-> Handle unmatched routes - Create custom component to display what data need to
+    be displayed when user navigates to unmatched route from browser path
+    and map the same to route path "*"
+        <Route path="*" component={NotFound} />
+***********************************************************************
+Deploying a React Project 
+-> "npm run build" is used to build the code which is ready to be deployed
+-> This creates a folder "build" which has "index.html" and sub folder "static" which contains css,js and media
+->The contents of "build" can be copied to dist folder/an folder on server to run.
+
+----------------------------------------------------------------------------
+->  DOTNET - Hosting Files/Deploying code
+ IIS -> inetpub->wwwwroot 
+
+  In local machine , C:\inetpub\wwwroot, create new folder "myapp" and copy the built code and run http://localhost/myapp
+ This will run the code from IIS
+ 
+-> JAVA 
+ Apache Tomcat -> Webapps
+
+ --------------------------------------------------------------------------
+ *******************************************************************************************
+ Component LifeCycle
+ -> Process that has various stages like creation of component, before rendering of component, while
+    rendering a component, after rendering a component and destroying a Component.
+-> "Mounting" - terminology used when React inserts a component to DOM
+-> "UnMounting" - terminology used when React deletes a component from DOM
+->Methods in Component Lifecycle:
+    - componentWillMount()
+    - render()
+    - componentDidMount()
+    - componentWillUnmount()
+-> Component props will not be available during the initialization (in constructor function).
+    It will be available only from componentWillMount() lifecycle method. 
+-> Any changes to the component UI styling can be made only from componentDidMount()/after rendering the component
+    Ex. componentDidMount() {
+        console.log("component did mount");
+        document.querySelector("h3").style.color = "#ca9988";
+    }
+
+****************************************************************************************
