@@ -3,7 +3,7 @@ import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 
 import {Route, Link, Switch} from "react-router-dom"
-import { NotFound, Home } from "./routecomponents";
+import { NotFound, Home, ManageProducts } from "./routecomponents";
 
 //default export
 /*can also be used as "export default App" at the end of the file
@@ -11,7 +11,9 @@ import { NotFound, Home } from "./routecomponents";
 */
 export default class App extends React.Component {
     render() {
-        return <div>
+        return <div className="container-fluid">
+        <div className="row">
+        <div className="col-xs-12">
             <nav className="navbar navbar-inverse">
                 <div className="navbar-header">
                     <Link to='/' className="navbar-brand">React App</Link>                   
@@ -26,6 +28,9 @@ export default class App extends React.Component {
                     <li className="nav-item">
                         <Link to="/signup" className="nav-link">Sign Up</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link to="/manage" className="nav-link">Manage Products</Link>
+                    </li>
                     </ul>
             </nav>
             <Switch>
@@ -33,8 +38,11 @@ export default class App extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/signIn" component={SignIn} />
                 <Route path="/signUp" component={SignUp} />
+                <Route path="/manage" component={ManageProducts} />
                 <Route path="*" component={NotFound} />
             </Switch>
+            </div>
+            </div>
         </div>
     }
 }
